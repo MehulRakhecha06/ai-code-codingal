@@ -5,14 +5,14 @@ from textblob import TextBlob
 colorama.init(autoreset=True)
 
 print(f"{Fore.CYAN} Welcome to sentement spy")
-usre_name = input(f"{Fore.MAGENTA}please enter your name:")
-if not usre_name:
+user_name = input(f"{Fore.MAGENTA}please enter your name:")
+if not user_name:
     user_name = "MYstery Agent"
 
 conversation_history = []
 
 print(f"\n{Fore.CYAN}Hello, Agent {user_name}")
-print(f"I will analyze your sentences with textblob and show you yhe sentiment")
+print(f"I will analyze your sentences with textblob and show you your sentiment")
 print(
     f"type{Fore.YELLOW}'reset'{Fore.CYAN},{Fore.YELLOW}'history'{Fore.CYAN},"
     f"or{Fore.YELLOW}'exit'{Fore.CYAN} to quit.\n"
