@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Runner - Hackathon Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Game Container -->
+    <div id="gameContainer" class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="header-content">
+                <h1 class="game-title">
+                    <i class="fas fa-bolt"></i>
+                    NEON RUNNER
+                    <i class="fas fa-bolt"></i>
+                </h1>
+                <div class="stats-display">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="currentScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best</span>
+                        <span id="highScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span id="currentLevel" class="stat-value">1</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <!-- Canvas for game rendering -->
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            
+            <!-- Game UI Overlay -->
+            <div id="gameUI" class="game-ui">
+                <!-- Start Screen -->
+                <div id="startScreen" class="screen active">
+                    <div class="screen-content">
+                        <div class="neon-logo">
+                            <h2>NEON RUNNER</h2>
+                            <div class="glow-effect"></div>
+                        </div>
+                        <p class="game-description">
+                            Navigate through the neon cityscape, dodge obstacles, collect power-ups!
+                        </p>
+                        <div class="controls-info">
+                            <div class="control-item">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>Jump / Fly Up</span>
+                            </div>
+                            <div class="control-item">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>Duck / Dive Down</span>
+                            </div>
+                            <div class="control-item">
+                                <i class="fas fa-mouse-pointer"></i>
+                                <span>Click to Control</span>
+                            </div>
+                        </div>
+                        <button id="startBtn" class="neon-button primary">
+                            <i class="fas fa-play"></i>
+                            START GAME
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game Over Screen -->
+                <div id="gameOverScreen" class="screen">
+                    <div class="screen-content">
+                        <h2 class="screen-title">GAME OVER</h2>
+                        <div class="score-summary">
+                            <div class="final-score">
+                                <span>Final Score</span>
+                                <span id="finalScore" class="score-number">0</span>
+                            </div>
+                            <div class="achievements" id="achievements">
+                                <!-- Dynamic achievements will be inserted here -->
+                            </div>
+                        </div>
+                        <div class="game-over-actions">
+                            <button id="restartBtn" class="neon-button primary">
+                                <i class="fas fa-redo"></i>
+                                PLAY AGAIN
+                            </button>
+                            <button id="menuBtn" class="neon-button secondary">
+                                <i class="fas fa-home"></i>
+                                MAIN MENU
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pause Screen -->
+                <div id="pauseScreen" class="screen">
+                    <div class="screen-content">
+                        <h2 class="screen-title">PAUSED</h2>
+                        <div class="pause-actions">
+                            <button id="resumeBtn" class="neon-button primary">
+                                <i class="fas fa-play"></i>
+                                RESUME
+                            </button>
+                            <button id="pauseMenuBtn" class="neon-button secondary">
+                                <i class="fas fa-home"></i>
+                                MAIN MENU
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power-up Notifications -->
+            <div id="powerupNotifications" class="powerup-notifications">
+                <!-- Dynamic notifications will appear here -->
+            </div>
+        </main>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+            <button id="pauseBtn" class="control-btn">
+                <i class="fas fa-pause"></i>
+            </button>
+            <button id="soundBtn" class="control-btn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <button id="fullscreenBtn" class="control-btn">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-label">Level Progress</div>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle System Container -->
+    <div id="particleSystem" class="particle-system">
+        <!-- Particles will be dynamically created here -->
+    </div>
+
+    <!-- Sound Effects (Web Audio API fallback) -->
+    <div id="audioElements" style="display: none;">
+        <!-- Audio elements will be created dynamically -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/powerups.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
